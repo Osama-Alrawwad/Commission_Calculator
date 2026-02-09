@@ -1,218 +1,219 @@
 :root {
   --head-color: #f7941d;
   --text-color: #333;
-  --main-size: 20px;
-  --secound-size: 11px;
+  --main-size: 1.25rem; /* 20px */
+  --second-size: 0.7rem; /* 11px */
 }
+
+/* reset + base */
+* {
+  box-sizing: border-box;
+}
+
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   padding: 0;
-  font-family:
-    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
   user-select: none;
+  color: var(--text-color);
 }
+
+/* app */
 .app {
   width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
 }
+
 .app .container {
   width: 50%;
-  padding: 20px;
   margin: 30px;
-  background: #fff;
   padding: 25px;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
   position: relative;
 }
 
+/* header */
 .app .container h2 {
   background-color: var(--head-color);
   border-radius: 10px;
-  font-size: 25px;
-  margin: auto auto 40px;
+  font-size: var(--main-size);
+  margin: 0 auto 40px;
   padding: 20px;
-  align-items: center;
-  color: white;
+  color: #fff;
   text-align: center;
 }
+
+/* form */
 .app .container form {
   display: flex;
   flex-direction: column;
 }
+
 .app .container form .row {
   width: 100%;
   display: flex;
-  font-size: 17px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  margin: 5px 0;
   align-items: center;
+  font-size: 1.05rem;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  margin: 5px 0;
 }
+
 .app .container form .row label {
   flex-basis: 75%;
   padding: 10px;
-  border-radius: 50px;
   font-weight: bold;
 }
+
 .app .container form .row input {
   flex-basis: 25%;
   padding: 10px;
-  font-size: 15px;
+  font-size: 0.95rem;
   border: none;
   border-bottom: 1px solid #d3d3d3;
   background-color: #f8f8f8;
-}
-.app .container form .row input:focus {
-  outline: none;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
-input[type="number"] {
-  --moz-appearance: textfield;
-}
-.app .container form .row:has(select) label {
-  flex-basis: 50%;
-}
-.app .container form .row select {
-  flex-basis: 50%;
-  padding: 10px;
-  font-size: 15px;
-  border: none;
-  border-bottom: 1px solid #d3d3d3;
-  cursor: pointer;
-  background-color: #f8f8f8;
-}
+.app .container form .row input:focus,
 .app .container form .row select:focus {
   outline: none;
 }
+
+/* remove number arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* select */
+.app .container form .row:has(select) label {
+  flex-basis: 50%;
+}
+
+.app .container form .row select {
+  flex-basis: 50%;
+  padding: 10px;
+  font-size: 0.95rem;
+  border: none;
+  border-bottom: 1px solid #d3d3d3;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+/* button */
 .btn {
   width: 100%;
-  padding: 10px;
-  font-size: 25px;
+  padding: 12px;
+  font-size: 1.4rem;
   font-weight: bold;
-  text-transform: capitalize;
   margin: 20px 0;
   border: none;
   background-color: #db8708;
-  color: white;
+  color: #fff;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
+
 .btn:hover {
   background-color: #ff9e0e;
 }
-hr {
-  width: 100%;
-}
-.message {
-  color: indianred;
-  text-align: center;
-  font-weight: 500;
-}
+
+/* result */
 .result {
   background-color: #eee;
-  padding: 0 10px 10px;
+  padding: 10px;
   border-radius: 5px;
-  transition: 0.5s;
 }
+
 .result div {
-  padding: 7px;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 17px;
+  font-size: 1.05rem;
 }
+
 .result div:not(:last-child) {
   border-bottom: 1px solid #c8c8c8;
-  font-weight: 400;
 }
+
+.result div strong,
 .total-result span {
-  font-weight: 900;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #db8708;
-  font-size: 19px;
 }
-.result div strong {
-  margin: 10px 0;
-  font-size: 19px;
+
+/* messages */
+.message {
+  color: indianred;
+  text-align: center;
+  font-size: 0.9rem;
 }
+
+/* error */
 .error {
   border-bottom: 2px solid indianred !important;
   background-color: #fff0f0;
 }
 
+/* footer */
 footer {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 40px;
+  font-size: 0.9rem;
   color: #989898;
 }
+
 footer span {
   color: var(--head-color);
   font-weight: 700;
 }
 
-/* responsive  */
-
+/* responsive */
 @media (max-width: 767px) {
   .app .container {
     width: 100%;
     margin: 5px;
   }
+
   .app .container h2 {
-    font-size: 17px;
+    font-size: 1.05rem;
   }
-  .app .container form .row {
-    margin: 2px 0;
-    padding: 5px;
-  }
-  .app .container form .row label {
-    font-size: 11px;
-    flex-basis: 80%;
-    padding: 5px;
-  }
-  .app .container form .row input {
-    font-size: 11px;
-    flex-basis: 20%;
-    padding: 5px;
-  }
+
+  .app .container form .row label,
+  .app .container form .row input,
   .app .container form .row select {
-    font-size: 11px;
+    font-size: 0.7rem;
+    padding: 6px;
   }
+
   .btn {
-    font-size: 17px;
-    margin: 20px 0 10px;
+    font-size: 1.05rem;
   }
-  .message {
-    font-size: 11px;
-  }
-  .result div {
-    padding: 2px;
-    font-size: 12px;
-  }
-  .total-result span {
-    font-size: 14px;
-  }
-  .result div strong {
-    font-size: 14px;
-  }
+
+  .result div,
+  .result div strong,
+  .total-result span,
   footer {
-    font-size: 11px;
-    bottom: 30px;
+    font-size: 0.8rem;
   }
 }
