@@ -13,23 +13,22 @@ let total = document.querySelector(".total-result span");
 btn.addEventListener("click", function (e) {
   e.preventDefault();
 
-let isValid = true;
-message.textContent = "";
+  let isValid = true;
+  message.textContent = "";
 
-inputs.forEach((input) => {
-  input.classList.remove("error");
+  inputs.forEach((input) => {
+    input.classList.remove("error");
 
-  if (input.value === "") {
-    isValid = false;
-    input.classList.add("error");
-    message.textContent = "All fields are required ❗";
-  } else if (Number(input.value) < 0) {
-    isValid = false;
-    input.classList.add("error");
-    message.textContent = "Values cannot be negative ❗";
-  }
-});
-
+    if (input.value === "") {
+      isValid = false;
+      input.classList.add("error");
+      message.textContent = "All fields are required ❗";
+    } else if (Number(input.value) < 0) {
+      isValid = false;
+      input.classList.add("error");
+      message.textContent = "Values cannot be negative ❗";
+    }
+  });
 
   if (isValid) {
     message.innerHTML = "";
@@ -44,7 +43,7 @@ function calculation() {
   const numChairs = Number(chairs.value);
   const per = Number(percentage.value.replace("%", "")) / 100;
 
-  const commission = Math.round((tSales - tSales * 0.16) * per * 100) / 100;
+  const commission = Math.round((tSales / 1.16) * per * 100) / 100;
 
   const extraTime = Math.round((sal / 30 / 8) * 1.25 * exTime * 100) / 100;
 
